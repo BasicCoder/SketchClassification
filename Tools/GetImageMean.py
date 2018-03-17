@@ -32,34 +32,39 @@ def get_all_image_names(rootdir, image_names_list=[]):
     return image_names_list
 
 def GetImageMean(rootdir, size=(256, 256)):
-    R_channel = 0
-    G_channel = 0
-    B_channel = 0
+    R_channel = []
+    G_channel = []
+    B_channel = []
     image_names_list = get_all_image_names(rootdir)
     progress = ProgressBar(max_value= len(image_names_list))
     for i, name in enumerate(image_names_list):
         img = imread(name)
         img = imresize(img, size)
         if(img.shape[-1] == 3 or img.shape[-1] == 4):
-            R_channel = R_channel + np.sum(img[:, :, 0])
-            G_channel = G_channel + np.sum(img[:, :, 1])
-            B_channel = B_channel + np.sum(img[:, :, 2])
+            R_channel.append(img[:, :, 0])
+            G_channel.append(img[:, :, 1])
+            B_channel.append(img[:, :, 2])
         else:
-            R_channel = R_channel + np.sum(img[:, :])
+            R_channel.append(img[:, :])
 
         progress.update(i)
     progress.finish()
 
-    num = len(image_names_list) * size[0] * size[1]
+    # num = len(image_names_list) * size[0] * size[1]
 
     if (img.shape[-1] == 3 or img.shape[-1] == 4):
-        R_mean = R_channel / num
-        G_mean = G_channel / num
-        B_mean = B_channel / num
-        return R_mean, G_mean, B_mean
+        R_mean = np.mean(np.asarray(R_channel))
+        G_mean = np.mean(np.asarray(G_channel))
+        B_mean = np.mean(np.asarray(B_channel))
+
+        R_std = np.std(np.asarray(R_channel))
+        G_std = np.std(np.asarray(G_channel))
+        B_std = np.std(np.asarray(B_channel))
+        return R_mean, G_mean, B_mean, R_std, G_std, B_std
     else:
-        R_mean = R_channel / num
-        return R_mean
+        R_mean = np.mean(np.asarray(R_channel))
+        R_std = np.std(np.asarray(R_channel))
+        return R_mean, R_std
 
 
 if __name__ == "__main__":
