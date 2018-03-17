@@ -24,7 +24,7 @@ parser.add_argument('--batch-size', type=int, default=128, metavar='N',
                     help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=10, metavar='N',
                     help='input batch size for testing (default: 10)')
-parser.add_argument('--epochs', type=int, default=100, metavar='N',
+parser.add_argument('--epochs', type=int, default=2000, metavar='N',
                     help='number of epochs to train (default: 10)')
 parser.add_argument('--weight_decay', type=float, default=0.0003,
                     help='Adm weight decay')
@@ -36,7 +36,7 @@ parser.add_argument('--seed', type=int, default=1, metavar='S',
                     help='random seed (default: 1)')
 parser.add_argument('--log-interval', type=int, default=20, metavar='N',
                     help='how many batches to wait before logging training status')
-parser.add_argument('--print-freq', '-p', default=10, type=int, metavar='N',
+parser.add_argument('--print-freq', '-p', default=15, type=int, metavar='N',
                     help='print frequency (default: 10)')
 parser.add_argument('--classes', type=int, default=419,
                     help='number of classes')
@@ -185,7 +185,7 @@ def train(train_loader, snet, id_criterion, optimizer, epoch):
         # compute gradient and do SGD step
         optimizer.zero_grad()
         loss.backward()
-        clip_grad_norm(snet.parameters(), 10.0)
+        clip_grad_norm(snet.parameters(), 100.0)
         optimizer.step()
 
         # measure elapsed time
@@ -276,7 +276,7 @@ class AverageMeter(object):
 
 def adjust_learning_rate(optimizer, epoch):
     """Sets the learning rate to the initial LR decayed by 10 every 30 epochs"""
-    lr = args.lr * (0.1**(epoch // 30))
+    lr = args.lr * (0.1**(epoch // 700))
     for param_group in optimizer.state_dict()['param_groups']:
         param_group['lr'] = lr
 
