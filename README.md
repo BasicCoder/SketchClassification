@@ -14,3 +14,11 @@
 | SketchANet(TU-Berlin sketch dataset) | 2e-5 | 0.5 - 100.0 | 30 | 0.0001 - 0.0003 | 
 
 ## Model Result
+
+
+
+
+## Tools
+- GetImageMean_Std
+
+Get image dataset mean and standard deviation.
