@@ -10,7 +10,7 @@ class ResNetModel(nn.Module):
         super(ResNetModel, self).__init__()
         self.base = resnet18(pretrained=True)
 
-        planes = 2048
+        planes = 512
 
         if num_classes is not None:
             self.fc = nn.Linear(planes, num_classes)

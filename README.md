@@ -12,6 +12,7 @@
 | AlexNet(scratch) | 2e-5 | 0.5 - 100.0 | 30 | 0.0005 |
 | SketchANet(DogsCats) | 2e-5 | 0.5 - 1.0 | 30 | 0.0005 |
 | SketchANet(TU-Berlin sketch dataset) | 2e-5 | 0.5 - 100.0 | 30 | 0.0001 - 0.0003 | 
+| ResNet18(pretrained)| 2e-4 | -- | 8 | 0.0005 |
 
 ## Model Result
 

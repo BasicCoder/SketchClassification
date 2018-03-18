@@ -18,6 +18,7 @@ import torch.backends.cudnn as cudnn
 from torch.nn.utils.clip_grad import clip_grad_norm
 from SketchANetModel import SketchANetModel
 from AlexNetModel import AlexNetModel
+from ResNetModel import ResNetModel
 
 parser = argparse.ArgumentParser(description='PyTorch Sketch Me That Shoe Example')
 parser.add_argument('--batch-size', type=int, default=128, metavar='N',
@@ -26,9 +27,9 @@ parser.add_argument('--test-batch-size', type=int, default=10, metavar='N',
                     help='input batch size for testing (default: 10)')
 parser.add_argument('--epochs', type=int, default=2000, metavar='N',
                     help='number of epochs to train (default: 10)')
-parser.add_argument('--weight_decay', type=float, default=0.0003,
+parser.add_argument('--weight_decay', type=float, default=0.0005,
                     help='Adm weight decay')
-parser.add_argument('--lr', type=float, default=2e-5, metavar='LR',
+parser.add_argument('--lr', type=float, default=2e-4, metavar='LR',
                     help='learning rate (default: 0.01)')
 parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='enables CUDA training')
@@ -107,8 +108,9 @@ def main():
     )
     ###### Model ######
 
-    snet = SketchANetModel(num_classes=250)
+    # snet = SketchANetModel(num_classes=250)
     # snet = AlexNetModel(num_classes=250)
+    snet = ResNetModel(num_classes=250)
     print(snet)
     if args.cuda:
         snet.cuda()
@@ -185,7 +187,7 @@ def train(train_loader, snet, id_criterion, optimizer, epoch):
         # compute gradient and do SGD step
         optimizer.zero_grad()
         loss.backward()
-        clip_grad_norm(snet.parameters(), 100.0)
+        # clip_grad_norm(snet.parameters(), 100.0)
         optimizer.step()
 
         # measure elapsed time
@@ -276,7 +278,7 @@ class AverageMeter(object):
 
 def adjust_learning_rate(optimizer, epoch):
     """Sets the learning rate to the initial LR decayed by 10 every 30 epochs"""
-    lr = args.lr * (0.1**(epoch // 700))
+    lr = args.lr * (0.1**(epoch // 10))
     for param_group in optimizer.state_dict()['param_groups']:
         param_group['lr'] = lr
 
