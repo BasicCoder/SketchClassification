@@ -17,6 +17,7 @@ TU-Berlin sketch dataset
 | ResNet18(pretrained) | 2e-4 | -- | 20 | 0.0005 |
 | ResNet34(pretrained) | 2e-4 | -- | 20 | 0.0001 |
 | ResNet50(pretrained) | 2e-4 | -- | 20 | 0.0005 |
+| DenseNet121(pretrained) | 2e-4 | -- | 20 | 0.0005 |
 * *This is for test Model.
 
 ## Model Result
@@ -24,11 +25,12 @@ TU-Berlin sketch dataset
 | Model | Prec@1 | Prec@5 |
 | --- | --- | --- |
 | AlexNet(pretrained) | 90.3780 | 99.690 |
-| AlexNet(scratch) |  |  |
+| AlexNet(scratch) | 99.3024 | 99.988 |
 | SketchANet(scratch) | 86.3166 | 98.667 |
 | ResNet18(pretrained) | 96.9899 | 99.954 |
 | ResNet34(pretrained) | 97.1048 | 99.954 |
 | ResNet50(pretrained) | 98.3049 | 99.988 |
+| DenseNet121(pretrained) | 91.4301 | 99.596 |
 
 
 ### Test Set
@@ -36,12 +38,12 @@ TU-Berlin sketch dataset
 | --- | --- | --- |
 | Human | 73.1 | -- |
 | AlexNet(pretrained) | 67.600 | 87.400 |
-| AlexNet(scratch) |  |  |
+| AlexNet(scratch) | 53.850 | 78.000 |
 | SketchANet(scratch) | 65.050 | 86.350 |
 | ResNet18(pretrained) | 72.300 | 90.200 |
 | ResNet34(pretrained) | 73.500 | 92.050 |
 | ResNet50(pretrained) | 77.500 | 94.000 |
-
+| DenseNet121(pretrained) | 75.600 | 93.200 |
 
 ## Tools
 - GetImageMean_Std
