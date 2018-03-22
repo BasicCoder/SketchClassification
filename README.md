@@ -7,6 +7,18 @@
 ## DataSet
 TU-Berlin sketch dataset
 
+| Model | input_size |
+| --- | --- |
+| (raw size)* | 1111 * 1111 |
+| AlexNet | 224 * 224 |
+| SketchANet | 224 * 224 |
+| ResNet18 | 224 * 224|
+| ResNet34 | 224 * 224 |
+| ResNet50 | 224 * 224 |
+| DenseNet121 | 224 * 224 | 
+| Inception_v3 | 299 * 299 | 
+
+
 ## Model Parameters
 | Model | lr | clip_grad_norm(max_norm)| learning rate decay | weight_decay |
 | --- | --- | --- | --- | --- |
@@ -18,6 +30,7 @@ TU-Berlin sketch dataset
 | ResNet34(pretrained) | 2e-4 | -- | 20 | 0.0001 |
 | ResNet50(pretrained) | 2e-4 | -- | 20 | 0.0005 |
 | DenseNet121(pretrained) | 2e-4 | -- | 20 | 0.0005 |
+| Inception_v3(pretrained) | 2e-4 | -- | 30 | 0.0005 |
 * *This is for test Model.
 
 ## Model Result
@@ -31,6 +44,7 @@ TU-Berlin sketch dataset
 | ResNet34(pretrained) | 97.1048 | 99.954 |
 | ResNet50(pretrained) | 98.3049 | 99.988 |
 | DenseNet121(pretrained) | 91.4301 | 99.596 |
+| Inception_v3(pretrained) | 91.8802 | 99.706 |
 
 
 ### Test Set
@@ -44,6 +58,7 @@ TU-Berlin sketch dataset
 | ResNet34(pretrained) | 73.500 | 92.050 |
 | ResNet50(pretrained) | 77.500 | 94.000 |
 | DenseNet121(pretrained) | 75.600 | 93.200 |
+| Inception_v3(pretrained) | 76.550 | 93.750 |
 
 ## Tools
 - GetImageMean_Std
