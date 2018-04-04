@@ -3,18 +3,18 @@ import torch.nn as nn
 import torch.nn.init as init
 import torch.nn.functional as F
 
-from resnet import resnet18, resnet50
+from resnet import resnet18, resnet34, resnet50
 
 class ResNetModel(nn.Module):
     def __init__(self, num_classes=None):
         super(ResNetModel, self).__init__()
-        self.base = resnet18(pretrained=True)
+        self.base = resnet34(pretrained=True)
 
         planes = 512
 
         if num_classes is not None:
             self.fc = nn.Linear(planes, num_classes)
-            init.normal(self.fc.weight, std=0.001)
+            init.xavier_uniform(self.fc.weight)
             init.constant(self.fc.bias, 0.1)
 
     def forward(self, x):
