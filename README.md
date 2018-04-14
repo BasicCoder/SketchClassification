@@ -11,7 +11,7 @@ TU-Berlin sketch dataset
 | ------------ | ----------- |
 | (raw size)*  | 1111 * 1111 |
 | AlexNet      | 224 * 224   |
-| SketchANet   | 224 * 224   |
+| SketchANet   | 225 * 225   |
 | ResNet18     | 224 * 224   |
 | ResNet34     | 224 * 224   |
 | ResNet50     | 224 * 224   |
@@ -51,15 +51,16 @@ TU-Berlin sketch dataset
 | Model                    | Prec@1 | Prec@5 |
 | ------------------------ | ------ | ------ |
 | Human                    | 73.1   | --     |
-| AlexNet<sup>1</sup>      | 68.6   | --     |
-| AlexNet<sup>2</sup>      | 77.29  | --     |
+| AlexNet<sup>i</sup>      | 68.6   | --     |
+| AlexNet<sup>ii</sup>     | 77.29  | --     |
+| GoogLeNet<sup>ii</sup>   | 80.85  | --     |
 | AlexNet(pretrained)      | 70.850 | 90.050 |
 | AlexNet(scratch)         | 53.850 | 78.000 |
-| SketchANet(scratch)      | 65.050 | 86.350 |
+| SketchANet(scratch)      | 68.700 | 88.900 |
 | ResNet18(pretrained)     | 77.800 | 94.650 |
 | ResNet34(pretrained)     | 79.100 | 95.050 |
-| ResNet50(pretrained)     | 77.500 | 94.000 |
-| DenseNet121(pretrained)  | 75.600 | 93.200 |
+| ResNet50(pretrained)     | 78.300 | 95.300 |
+| DenseNet121(pretrained)  | 77.550 | 93.500 |
 | Inception_v3(pretrained) | 76.550 | 93.750 |
 
 * 1. *Sketch-a-Net that Beats Humans*
